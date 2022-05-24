@@ -1,0 +1,69 @@
+<app-user-layout></app-user-layout>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-center">
+            <h4>
+              <i class="fas fa-check-circle fa-fw text-success"></i>
+              Your Loan Request has been deployed.
+            </h4>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="bg-faint-blue px-3 py-3" style="border-radius: 4px;">
+                <div class="mx-1 mt-2" id="loan-request-summary">
+
+                  <div class="text-center">
+                    <p class="text-dark my-0 type-6">
+                      Your Loan Request for
+                    </p>
+
+                    <h4>
+                      <span class="text-blue display-loan-amount">2000</span>
+                      @
+                      <span class="text-blue display-loan-rate">4.72 %</span>
+                      for
+                      <span class="text-blue display-loan-time">2 Years</span>
+                    </h4>
+                  </div>
+
+                  <hr />
+
+                  <p class="text-dark type-6 mb-0 mt-1">
+                    Loan Amount :
+                    <span class="text-blue float-end semi-bold display-loan-amount">2000</span>
+                  </p>
+
+                  <p class="text-dark type-6 mb-0 mt-1">
+                    Interest Amount :
+                    <span class="float-end">
+                      +
+                      <span class="text-success semi-bold display-interest-amount">188.80000000000018</span>
+                    </span>
+                  </p>
+
+                  <hr />
+
+                  <p class="text-dark mt-1 mb-0 text-center">
+                    You will Pay (in USDC):
+                    <br />
+                    <span class="text-blue semi-bold display-total-amount h2">2188.8</span>
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-12 text-center">
+      <button routerLink="/wallet" class="btn btn-link"><i class="fa fa-arrow-circle-left fa-fw"></i> Back to Home</button>
+    </div>
+  </div>
+</div>

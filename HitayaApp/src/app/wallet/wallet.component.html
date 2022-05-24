@@ -1,0 +1,582 @@
+
+<app-user-layout></app-user-layout>
+
+<div class="container mt-4 mb-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="mb-0">Wallet</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <h5 class="col-3 mt-1">Network:</h5>
+            <div class="col-9">
+              <select class="form-select form-select-sm text-muted">
+                <option value="Ethereum" selected>Ethereum Main Network</option>
+                <option value="5ire Test Network">5ire Test Network</option>
+                <option value="Cudos Test Network">Cudos Test Network</option>
+                <option value="Prasaga">Prasaga</option>
+                <option value="Solana">Solana</option>
+                <option value="Lumos">Lumos</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+        <p class="text-muted type-6 mt-0"><i class="fa fa-circle fa-fw fa-sm text-success"></i> Ethereum Main Network</p>
+      -->
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-4">
+
+      <div class="card border-2x mb-3" id="basic-details-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <img src="assets/profile-pic.png" class="img-fluid" />
+            </div>
+            <div class="col-md-8 text-center">
+              <h2 class="mt-3 text-dark-grey">{{hat_balance}} USDC</h2>
+              <br />
+            </div>
+          </div>
+
+          <div class="row mt-2 text-center text-sm-left">
+            <div class="col-md-12">
+              <h3 class="mb-0">{{curr_user_name}}</h3>
+              <h3 class="mt-3 text-dark-grey">{{user.balance}}  ETH</h3>
+              <br />
+              <p class="text-muted type-7 mt-0">{{user.address}}</p>
+              <div class="row mt-4 text-center">
+                <div class="col-md-3 col-sm-3 col-3">
+                  <button class="btn btn-primary" (click)="ReciveQr()">
+                    <i class="fa fa-arrow-down fa-fw"></i>
+                  </button>
+                  <p class="small text-primary">Receive</p>
+                </div>
+                <div class="col-md-3 col-sm-3 col-3">
+                  <button class="btn btn-primary" (click)="sendtoken()">
+                    <i class="fa fa-arrow-up fa-fw"></i>
+                  </button>
+                  <p class="small text-primary">Send</p>
+                </div>
+                <div class="col-md-3 col-sm-3 col-3">
+                  <button class="btn btn-danger" (click)="buytoken()">
+                    <i class="fa fa-fire fa-fw"></i>
+                  </button>
+                  <p class="small text-danger">Burn</p>
+                </div>
+                <div class="col-md-3 col-sm-3 col-3">
+                  <button class="btn btn-warning" (click)="swaptoken()">
+                    <i class="fas fa-exchange-alt fa-fw"></i>
+                  </button>
+                  <p class="small text-dark">Swap</p>
+                </div>
+              </div>
+
+            </div>
+            <!--<qrcode [qrdata]="myAngularxQrCode" [width]="340" [errorCorrectionLevel]="'M'"></qrcode>-->
+          </div>
+
+        </div>
+        <div *ngIf="recive">
+          <!--<qrcode [qrdata]="myAngularxQrCode" [width]="340" [errorCorrectionLevel]="'M'"></qrcode>-->
+        </div>
+
+      </div>
+
+
+      <div *ngIf="buy">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body px-3 py-3" style="padding:0; margin: 0;">
+
+                <form #BurnForm="ngForm" (ngSubmit)="burn(BurnForm)">
+
+
+                  <div class="form-group">
+                    <h6>HAT Tokens:</h6>
+                    <input class="form-control form-control-sm" placeholder="Amount HAT" #amountRef name="amt" ngModel required>
+                    <!--<div *ngFor="let validation of accountValidationMessages.amount">
+                      <p *ngIf="userForm.get('amount').hasError(validation.type) && (userForm.get('amount').dirty || userForm.get('amount').touched)">{{validation.message}}</p>
+                    </div>-->
+                  </div>
+
+                  <div class="mt-4">
+                    <button class="btn btn-danger btn-block btn-sm" type="submit">Burn HAT</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div *ngIf="send">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <form #TransferForm="ngForm" (ngSubmit)="submitTransferForm(TransferForm)">
+
+                  <div class="form-group">
+                    <h6>Address:</h6>
+                    <input type="text" class="form-control form-control-sm" #CryptoRef name="crypto" ngModel placeholder="Transfer Address" maxlength="42" minlength="42" required>
+                    <!--<div *ngFor="let validation of accountValidationMessages.transferAddress">
+                      <p *ngIf="userForm.get('transferAddress').hasError(validation.type) && (userForm.get('transferAddress').dirty || userForm.get('transferAddress').touched)">{{validation.message}}</p>
+                    </div>-->
+                  </div>
+
+                  <div class="form-group mt-3 row no-gutters">
+                    <div class="col-sm-5 pr-2">
+                      <h6>USDC Tokens:</h6>
+                      <input type="text" class="form-control form-control-sm" placeholder="Amount HAT" #amountRef name="amount" ngModel required>
+                      <!--<div *ngFor="let validation of accountValidationMessages.amount">
+                        <p *ngIf="userForm.get('amount').hasError(validation.type) && (userForm.get('amount').dirty || userForm.get('amount').touched)">{{validation.message}}</p>
+                      </div>-->
+                    </div>
+                    <div class="col-sm-7">
+                      <h6>TRA Type:</h6>
+                      <select type="text" #typexRef name="typex" ngModel class="form-select form-select-sm" id="exampleInputPassword1" required>
+                        <option value="Mortgage/Rent">Mortgage/Rent</option>
+                        <option value="Food">Food</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Others">Others</option>
+                      </select>
+
+                      <!--<div *ngFor="let validation of accountValidationMessages.amount">
+                        <p *ngIf="userForm.get('amount').hasError(validation.type) && (userForm.get('amount').dirty || userForm.get('amount').touched)">{{validation.message}}</p>
+                      </div>-->
+                    </div>
+                  </div>
+
+                  <div class="mt-4">
+                    <button class="btn btn-success btn-block btn-sm" type="submit">Transfer USDC</button>
+                  </div>
+
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div *ngIf="swap">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body px-3 py-3" style="padding:0; margin: 0;">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <select type="text" class="form-control">
+                        <option value="HAT">HAT</option>
+                        <option value="BTC">BTC</option>
+                        <option value="BTC">BTC</option>
+                        <option value="BTC">BTC</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <button class="btn btn-primary btn-sm"><i class="fa fa-exchange-alt" style="transform: rotate(90deg);"></i></button>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <select type="text" class="form-control">
+                        <option value="BTC">BTC</option>
+                        <option value="BTC">BTC</option>
+                        <option value="BTC">BTC</option>
+                        <option value="BTC">BTC</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <button class="btn btn-success btn-block">Transfer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-8">
+
+
+
+      <div class="card border-2x" id="basic-details-2">
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="transactions-tab" data-bs-toggle="tab" data-bs-target="#transactions" type="button" role="tab" aria-controls="transactions" aria-selected="true">
+                    <strong>TRANSACTIONS</strong>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="contacts-tab" data-bs-toggle="tab" data-bs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">
+                    <strong>CONTACTS</strong>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="loan-tab" data-bs-toggle="tab" data-bs-target="#loan" type="button" role="tab" aria-controls="loan" aria-selected="false">
+                    <strong>LOAN</strong>
+                  </button>
+                </li>
+              </ul>
+
+              <div class="tab-content mx-4" id="myTabContent">
+                <div class="tab-pane fade show active" id="transactions" role="tabpanel" aria-labelledby="transactions-tab">
+                  <div class="row" *ngFor="let tran of listtransaction">
+                    <div class="col-3 col-sm-2 col-md-2">
+                      <img src="assets/profile-pic.png" class="img-fluid" />
+                    </div>
+                    <div class="col-9 col-sm-10 col-md-10 mt-md-2">
+                      <h4 class="mb-0 bold">{{tran[1]}}</h4>
+                      <p class="mt-0 no-td-space text-muted type-6">{{tran[0]}}</p>
+                      <p class="mt-0 no-td-space text-muted type-6">{{tran[2]}} HAT</p>
+                      <p class="mt-0 no-td-space text-muted type-6">{{tran[3]}}</p>
+                      <hr />
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
+                  <div class="row">
+
+                    <div class="col-md-12">
+                      <div *ngIf="add_contacts">
+                        <form #AddContactForm="ngForm" (ngSubmit)="SubmitAddContact(AddContactForm)">
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Contact Name</label>
+                            <input type="text" #NameRef name="name" ngModel class="form-control" id="exampleInputPassword1" required />
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Contact Public Crypto Address</label>
+                            <input type="text" #CryptoRef name="crypto" ngModel class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+                            <div id="emailHelp" class="form-text">We'll never share your details with anyone else.</div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Contact Type</label>
+                            <select type="text" #typeRef name="type" ngModel class="form-control" id="exampleInputPassword1" required>
+                              <option value="Mortgage/Rent">Mortgage/Rent</option>
+                              <option value="Food">Food</option>
+                              <option value="Utilities">Utilities</option>
+                              <option value="Bills">Bills</option>
+                              <option value="Shopping">Shopping</option>
+                              <option value="Transportation">Transportation</option>
+                              <option value="Insurance">Insurance</option>
+                              <option value="Healthcare">Healthcare</option>
+                              <option value="Clothing">Clothing</option>
+                              <option value="Others">Others</option>
+                            </select>
+                            <!--<input type="text" #typeRef name="type" ngModel class="form-control" id="exampleInputPassword1" required />-->
+                          </div>
+                          <button type="submit" [disabled]="!AddContactForm.form.valid" class="btn btn-primary">Submit</button>
+                        </form>
+                      </div>
+                      <button class="btn btn-primary btn-sm float-right" (click)="addcontact()"><i class="fa fa-plus"></i> Add Contact</button>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div class="row" *ngFor="let data of contact_list">
+                    <div class="col-3 col-sm-2 col-md-2">
+                      <img src="assets/profile-pic.png" class="img-fluid" />
+                    </div>
+                    <div class="col-9 col-sm-10 col-md-10 mt-md-2">
+                      <h4 class="mb-0 bold">{{data[2]}}             ({{data[3]}})</h4>
+                      <p class="mt-0 no-td-space text-muted type-6">{{data[1]}}</p>
+                      <button class="btn btn-link btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                      <hr />
+                    </div>
+                    <hr />
+                  </div>
+
+
+
+                  <!--<div class="row mt-4">
+                    <div class="col-3 col-sm-2 col-md-2">
+                      <img src="assets/profile-pic.png" class="img-fluid" />
+                    </div>
+                    <div class="col-9 col-sm-10 col-md-10 mt-md-2">
+                      <h4 class="mb-0 bold">Veggie Grill</h4>
+                      <p class="mt-0 no-td-space text-muted type-6">sjfhjgdfhdfkdoe8ytudshfkjsdfkj</p>
+                      <button class="btn btn-link btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                    </div>
+                  </div>-->
+
+                  <hr />
+                </div>
+                <div class="tab-pane fade" id="loan" role="tabpanel" aria-labelledby="loan-tab">
+                  <!--<div class="text-center text-dark-grey">
+                    <i class="fa fa-circle-notch fa-3x fa-fw"></i>
+                    <h3 class="mt-2 mb-0">No NFTs yet</h3>
+                    <a href="#">Learn More</a>
+                  </div>
+
+                  <div class="row text-center text-muted mt-4">
+                    <div class="col-md-12">
+                      <p class="type-6 mb-0">Don't see your NFT?</p>
+                      <a class="type-6 mt-0" href="#">+ ADD NFTs</a>
+                    </div>
+                  </div>-->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <h5 class="bold mt-2">
+                            REQUEST LOAN
+                          </h5>
+                        </div>
+                        <div class="col-md-6 text-sm-end">
+                          <button class="btn btn-sm btn-warning">
+                            <i class="fa fa-history fa-fw"></i>
+                            Loan History
+                          </button>
+                        </div>
+                      </div>
+
+
+                      <hr />
+                      <div class="row mt-2">
+                        <h5 for="new-batch-name" class="col-8 col-sm-8 col-md-8 semi-bold mt-2">Loan Amount:</h5>
+                        <div class="col-4 col-sm-4 col-md-4">
+                          <input type="number" name="amount" [(ngModel)]="amount" (ngModelChange)="calcTotalLoanPay(amount, rate, time_value, time_duration_type)" class="form-control" id="loan-amount" placeholder="20000" />
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <h5 for="new-batch-name" class="col-8 col-sm-8 col-md-8 semi-bold mt-0">
+                          Requested Rate:
+                          <br />
+                          <span class="text-muted type-6">
+                            (% per year basis)
+                          </span>
+                        </h5>
+                        <div class="col-4 col-sm-4 col-md-4">
+                          <input type="number" name="rate" [(ngModel)]="rate" (ngModelChange)="calcTotalLoanPay(amount, rate, time_value, time_duration_type)" class="form-control" id="loan-rate" placeholder="5" />
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <h5 for="new-batch-name" class="col-8 col-sm-8 col-md-8 semi-bold mt-2">Time:</h5>
+                        <div class="col-4 col-sm-4 col-md-4">
+                          <input type="number" name="time_value" [(ngModel)]="time_value" (ngModelChange)="calcTotalLoanPay(amount, rate, time_value, time_duration_type)" class="form-control" id="loan-time-value" placeholder="2" />
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-5 col-sm-8 col-md-7"></div>
+                        <div class="col-7 col-sm-4 col-md-5">
+                          <div class="row">
+                            <div class="col-6 col-sm-6 col-md-6">
+                              <div class="custom-control custom-radio mt-2">
+                                <input type="radio" id="loan-days" name="time_duration_type" [(ngModel)]="time_duration_type" (ngModelChange)="calcTotalLoanPay(amount, rate, time_value, time_duration_type)" class="custom-control-input loan-duration-type" value="days">
+                                <label class="custom-control-label type-6" for="loan-days"> Days</label>
+                              </div>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6">
+                              <div class="custom-control custom-radio mt-2">
+                                <input type="radio" id="loan-weeks" name="time_duration_type" [(ngModel)]="time_duration_type" (ngModelChange)="calcTotalLoanPay(amount, rate, time_value, time_duration_type)" class="custom-control-input loan-duration-type" value="weeks">
+                                <label class="custom-control-label type-6" for="loan-weeks"> Week(s)</label>
+                              </div>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6">
+                              <div class="custom-control custom-radio mt-2">
+                                <input type="radio" id="loan-months" name="time_duration_type" [(ngModel)]="time_duration_type" (ngModelChange)="calcTotalLoanPay(amount, rate, time_value, time_duration_type)" class="custom-control-input loan-duration-type" value="months">
+                                <label class="custom-control-label type-6" for="loan-months"> Month(s)</label>
+                              </div>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6">
+                              <div class="custom-control custom-radio mt-2">
+                                <input type="radio" id="loan-years" name="time_duration_type" [(ngModel)]="time_duration_type" (ngModelChange)="calcTotalLoanPay(amount, rate, time_value, time_duration_type)" class="custom-control-input loan-duration-type" value="years">
+                                <label class="custom-control-label type-6" for="loan-years"> Year(s)</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-4">
+                    <div class="col-md-12">
+                      <div class="card">
+                        <div class="card-body">
+
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="bg-faint-blue px-3 py-3" style="border-radius: 4px;">
+                                <h5 class="bold">LOAN REQUEST SUMMARY</h5>
+                                <div class="mx-1 mt-3" id="loan-request-summary">
+
+                                  <p class="text-dark mb-0 type-6">
+                                    Your Loan Request for
+                                    <span class="text-blue display-loan-amount">{{ amount_field }}</span>
+                                    @
+                                    <span class="text-blue display-loan-rate">{{ rate }}%</span>
+                                    for
+                                    <span class="text-blue display-loan-time"> {{ time_value}} {{time_duration_type }}</span>
+                                  </p>
+
+                                  <hr />
+
+                                  <p class="text-dark type-6 mb-0 mt-1">
+                                    Loan Amount :
+                                    <span class="text-blue float-end semi-bold display-loan-amount">{{amount_field}}</span>
+                                  </p>
+
+                                  <p class="text-dark type-6 mb-0 mt-1">
+                                    Interest Amount :
+                                    <span class="float-end">
+                                      +
+                                      <span class="text-success semi-bold display-interest-amount">
+                                        {{interest_amount}}
+                                      </span>
+                                    </span>
+                                  </p>
+
+                                  <hr />
+
+                                  <p class="text-dark mt-1 mb-0 text-center text-sm-start">
+                                    You will Pay (in USDC):
+                                    <span class="text-blue float-center float-sm-end semi-bold display-total-amount h4">{{total_amount}}</span>
+                                  </p>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row mt-2">
+                            <div class="col-md-12">
+                              <button class="btn btn-success btn-block float-end" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <span class="bold">
+                                  REQUEST LOAN
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="bg-faint-blue px-3 py-3" style="border-radius: 4px;">
+              <h5 class="bold">CONFIRM LOAN</h5>
+              <div class="mx-1 mt-3" id="loan-request-summary">
+
+                <p class="text-dark mb-0 type-6">
+                  Your Loan Request for
+                  <span class="text-blue display-loan-amount"> {{amount_field}}</span>
+                  @
+                  <span class="text-blue display-loan-rate">{{rate}}%</span>
+                  for
+                  <span class="text-blue display-loan-time">{{time_value}} {{time_duration_type}}</span>
+                </p>
+
+                <hr />
+
+                <p class="text-dark type-6 mb-0 mt-1">
+                  Loan Amount :
+                  <span class="text-blue float-end semi-bold display-loan-amount"> {{ amount_field }}</span>
+                </p>
+
+                <p class="text-dark type-6 mb-0 mt-1">
+                  Interest Amount :
+                  <span class="float-end">
+                    +
+                    <span class="text-success semi-bold display-interest-amount">
+                      {{ rate }}
+                    </span>
+                  </span>
+                </p>
+
+                <hr />
+
+                <p class="text-dark mt-1 mb-0 text-center">
+                  You will Pay (in USDC):
+                  <br />
+                  <span class="text-blue semi-bold display-total-amount h2"> {{ total_amount }}</span>
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <p class="type-7-2 mb-0">
+              I have Read, Understood and Accept the
+              <a href="#">TERMS & CONDITIONS</a>
+              on applying for Loan Request.
+              I Promise to Return the amount as mentioned above in
+              <span class="bold">CONFIRM LOAN</span> on time.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button routerLink="/loan-request-checkout" type="button" class="btn btn-success">
+          <span class="bold">CONFIRM LOAN REQUEST</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
