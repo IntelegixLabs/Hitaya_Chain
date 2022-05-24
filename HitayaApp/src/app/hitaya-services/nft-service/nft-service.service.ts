@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import Web3 from "web3";
-import { create as ipfsHttpClient } from 'ipfs-http-client'
+/*import { create as ipfsHttpClient } from 'ipfs-http-client'*/
 /*const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');*/
 
 declare let require: any;
