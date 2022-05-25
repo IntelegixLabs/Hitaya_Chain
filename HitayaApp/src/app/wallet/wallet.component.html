@@ -38,45 +38,46 @@
               <img src="assets/profile-pic.png" class="img-fluid" />
             </div>
             <div class="col-md-8 text-center">
-              <h2 class="mt-3 text-dark-grey">{{hat_balance}} USDC</h2>
+              <h2 class="mt-3 text-dark-grey">
+                {{hat_balance}} {{erc20_symbol}}</h2>
               <br />
             </div>
           </div>
-
           <div class="row mt-2 text-center text-sm-left">
             <div class="col-md-12">
-              <h3 class="mb-0">{{curr_user_name}}</h3>
-              <h3 class="mt-3 text-dark-grey">{{user.balance}}  ETH</h3>
-              <br />
-              <p class="text-muted type-7 mt-0">{{user.address}}</p>
-              <div class="row mt-4 text-center">
-                <div class="col-md-3 col-sm-3 col-3">
-                  <button class="btn btn-primary" (click)="ReciveQr()">
-                    <i class="fa fa-arrow-down fa-fw"></i>
-                  </button>
-                  <p class="small text-primary">Receive</p>
+              <h3 class="mb-0">{{curr_user_name
+                }}</h3>
+                <h3 class="mt-3 text-dark-grey">{{user_balance}}  ETH</h3>
+                <br />
+                <p class="text-muted type-7 mt-0">{{user_address}}</p>
+                <div class="row mt-4 text-center">
+                  <div class="col-md-3 col-sm-3 col-3">
+                    <button class="btn btn-primary" (click)="ReciveQr()">
+                      <i class="fa fa-arrow-down fa-fw"></i>
+                    </button>
+                    <p class="small text-primary">Receive</p>
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-3">
+                    <button class="btn btn-primary" (click)="sendtoken()">
+                      <i class="fa fa-arrow-up fa-fw"></i>
+                    </button>
+                    <p class="small text-primary">Send</p>
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-3">
+                    <button class="btn btn-danger" (click)="buytoken()">
+                      <i class="fa fa-fire fa-fw"></i>
+                    </button>
+                    <p class="small text-danger">Burn</p>
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-3">
+                    <button class="btn btn-warning" (click)="swaptoken()">
+                      <i class="fas fa-exchange-alt fa-fw"></i>
+                    </button>
+                    <p class="small text-dark">Swap</p>
+                  </div>
                 </div>
-                <div class="col-md-3 col-sm-3 col-3">
-                  <button class="btn btn-primary" (click)="sendtoken()">
-                    <i class="fa fa-arrow-up fa-fw"></i>
-                  </button>
-                  <p class="small text-primary">Send</p>
-                </div>
-                <div class="col-md-3 col-sm-3 col-3">
-                  <button class="btn btn-danger" (click)="buytoken()">
-                    <i class="fa fa-fire fa-fw"></i>
-                  </button>
-                  <p class="small text-danger">Burn</p>
-                </div>
-                <div class="col-md-3 col-sm-3 col-3">
-                  <button class="btn btn-warning" (click)="swaptoken()">
-                    <i class="fas fa-exchange-alt fa-fw"></i>
-                  </button>
-                  <p class="small text-dark">Swap</p>
-                </div>
-              </div>
 
-            </div>
+</div>
             <!--<qrcode [qrdata]="myAngularxQrCode" [width]="340" [errorCorrectionLevel]="'M'"></qrcode>-->
           </div>
 
