@@ -32,6 +32,7 @@ export class WalletComponent implements OnInit {
   add_contacts: boolean = false;
 
   hat_balance: any = 0;
+  erc20_symbol: any = "NA";
 
   listtransaction = [];
 
@@ -101,6 +102,7 @@ export class WalletComponent implements OnInit {
     this.getusername();
     this.gettransaction();
     this.geterc20token();
+    this.geterc20sysnbol();
 
   }
 
@@ -380,6 +382,18 @@ export class WalletComponent implements OnInit {
       then(function (balance: any) {
         that.hat_balance = balance;
         console.log(that.hat_balance);
+      }).catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  geterc20sysnbol = () => {
+    console.log("Get ERC20 Symbol");
+    const that = this;
+    this.hit_token_servie.view_symbol().
+      then(function (symbol: any) {
+        that.erc20_symbol = symbol;
+        console.log(that.erc20_symbol);
       }).catch(function (error) {
         console.log(error);
       });

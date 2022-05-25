@@ -498,6 +498,7 @@ export class SmartContractServicesService {
         );
       }).then(function (status) {
         console.log(status);
+        console.log("ERC20 Symbol");
         if (status) {
           return resolve(status);
         }
