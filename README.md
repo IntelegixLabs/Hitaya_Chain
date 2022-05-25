@@ -2,7 +2,7 @@
 
 <p><strong>A Financial DApp –</strong> Hitaya is derived from a Sanskrit word that means Welfare.
 	
-<strong>Hitaya Circle DApp </strong>primary focus is to use Circle Platform API to transfer USDC tokens using <a href="https://developers.circle.com/reference/payments-payments-get">Circe API </a> from one user to another, and give the user a personalized dashboard, to check all this income and expenditure in a given period of time. 
+<strong>Hitaya Circle DApp </strong>primary focus is to use Circle Platform API to transfer HAT tokens using <a href="https://developers.circle.com/reference/payments-payments-get">Circe API </a> from one user to another, and give the user a personalized dashboard, to check all this income and expenditure in a given period of time. 
 
 Users can request/give a short loan from a peer/friend using a smart contract and decide upon the interest rate and duration of the loan.
 
@@ -15,10 +15,10 @@ Users can Buy and mint NFT using our platform too.
 <img src="DATA/screenshot/05a.png" align="right" width="350" height="350" />
 <h3>Key Features</h3>
 <ul>
-  <li>Transfer USDC</li>
+  <li>Transfer HAT</li>
   <li>Personalized Expenditure Dashboard</li>
   <li>Circle API</li>
-  <li>USDC Smart Contract</li>
+  <li>HAT Smart Contract</li>
   <li>Verite</li>
 </ul>
 
