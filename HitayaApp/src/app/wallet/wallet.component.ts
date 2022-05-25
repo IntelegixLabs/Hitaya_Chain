@@ -100,6 +100,7 @@ export class WalletComponent implements OnInit {
     this.getContacts();
     this.getusername();
     this.gettransaction();
+    this.geterc20token();
 
   }
 
@@ -353,6 +354,7 @@ export class WalletComponent implements OnInit {
 
 
   getusername = () => {
+    console.log("Get user name function started");
     const that = this;
     this.hit_token_servie.view_Users().
       then(function (employee_data: any) {
@@ -360,9 +362,24 @@ export class WalletComponent implements OnInit {
           console.log(employee_data[i][0]);
           if (that.userName == employee_data[i][1]) {
             that.curr_user_name = String(employee_data[i][0]);
-            that.hat_balance = employee_data[i][3];
+            /*that.hat_balance = employee_data[i][3];*/
+            console.log(that.curr_user_name);
+            console.log("Employee Data");
+            console.log(employee_data);
           }
         }
+      }).catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  geterc20token = () => {
+    console.log("Get ERC20 Balance");
+    const that = this;
+    this.hit_token_servie.view_HAT_balance(that.user.address).
+      then(function (balance: any) {
+        that.hat_balance = balance;
+        console.log(that.hat_balance);
       }).catch(function (error) {
         console.log(error);
       });

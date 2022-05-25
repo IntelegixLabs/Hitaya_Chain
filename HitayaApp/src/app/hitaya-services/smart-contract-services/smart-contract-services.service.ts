@@ -5,6 +5,10 @@ declare let require: any;
 declare let window: any;
 const tokenAbi = require('../../../../../truffle/build/contracts/HAT_TOKEN.json');
 
+const contract = require('@truffle/contract');
+const HAT_TOKEN = contract(tokenAbi);
+
+
 
 
 
@@ -101,9 +105,6 @@ export class SmartContractServicesService {
     console.log('User Name : ' +
       value.name + ' User Password : ' + value.password + ' Public Crypto Id : ' + value.cryptoid);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -132,9 +133,6 @@ export class SmartContractServicesService {
     const that = this;
     console.log(' User Password : ' + value.password + ' Public Crypto Id : ' + value.crypto_id);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -164,9 +162,6 @@ export class SmartContractServicesService {
     const that = this;
     console.log(value);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -195,9 +190,6 @@ export class SmartContractServicesService {
     const that = this;
     console.log(value);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -228,9 +220,6 @@ export class SmartContractServicesService {
     const that = this;
     console.log(' Public Crypto Id : ' + value.cryptoid);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -257,9 +246,6 @@ export class SmartContractServicesService {
     const that = this;
     console.log(value, dapp_admin);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -284,9 +270,6 @@ export class SmartContractServicesService {
   view_employee() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -313,9 +296,6 @@ export class SmartContractServicesService {
   view_contacts() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -342,9 +322,6 @@ export class SmartContractServicesService {
   view_Users() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -372,9 +349,6 @@ export class SmartContractServicesService {
   view_Transaction() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -402,9 +376,6 @@ export class SmartContractServicesService {
     const that = this;
     console.log(value);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -430,9 +401,6 @@ export class SmartContractServicesService {
     const that = this;
     console.log(value);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -461,9 +429,6 @@ export class SmartContractServicesService {
     console.log(value);
     console.log("Air Drop Service");
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -491,9 +456,6 @@ export class SmartContractServicesService {
     const that = this;
     console.log(value);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -516,21 +478,16 @@ export class SmartContractServicesService {
 
 
 
-  view_HAT_balance(value) {
+  view_HAT_balance(address) {
     const that = this;
-    console.log(value);
+    console.log(address);
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
+      console.log("ERC20 Balance");
       HAT_TOKEN.setProvider(that.web3);
-      console.log(HAT_TOKEN);
+      console.log(address);
       HAT_TOKEN.deployed().then(function (instance) {
         return instance.balanceOf(
-          value,
-          {
-            from: value
-          }
+          address
         );
       }).then(function (status) {
         console.log(status);
@@ -548,9 +505,6 @@ export class SmartContractServicesService {
   view_employee_admin() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -572,9 +526,6 @@ export class SmartContractServicesService {
   view_dapp_admin() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -596,9 +547,6 @@ export class SmartContractServicesService {
   view_decimals() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -619,9 +567,6 @@ export class SmartContractServicesService {
   view_total_supply() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -643,9 +588,6 @@ export class SmartContractServicesService {
   view_name() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
@@ -667,9 +609,6 @@ export class SmartContractServicesService {
   view_symbol() {
     const that = this;
     return new Promise((resolve, reject) => {
-      console.log(tokenAbi);
-      const contract = require('@truffle/contract');
-      const HAT_TOKEN = contract(tokenAbi);
       HAT_TOKEN.setProvider(that.web3);
       console.log(HAT_TOKEN);
       HAT_TOKEN.deployed().then(function (instance) {
