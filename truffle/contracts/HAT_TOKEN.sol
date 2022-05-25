@@ -43,7 +43,6 @@ contract HAT_TOKEN is ERC20 {
 
     
     address public admin;
-    address public employeeadmin;
     uint256 total_hat_burnt;
     
     constructor() ERC20('Hitaya Token', 'HAT'){
@@ -67,12 +66,7 @@ contract HAT_TOKEN is ERC20 {
         admin=_address;
     }
     
-    
-    function change_employeeadmin(address _address) public{
-        employeeadmin=_address;
-    }
-    
-    
+
     function login(string memory _password) public view returns (bool){
         for (uint i=0;i<Users.length;i++){
             if (Users[i].user_crypto_id==msg.sender && keccak256(abi.encodePacked(Users[i].password))==keccak256(abi.encodePacked(_password))){
