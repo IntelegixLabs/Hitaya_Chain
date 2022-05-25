@@ -62,22 +62,6 @@ export class WalletComponent implements OnInit {
   total_amount: any = 0;
 
 
-
-  accountValidationMessages = {
-    transferAddress: [
-      { type: 'required', message: 'Transfer Address is required' },
-      { type: 'minLength', message: 'Transfer Address must be 42 characters long' },
-      { type: 'maxLength', message: 'Transfer Address must be 42 characters long' }
-    ],
-    amount: [
-      { type: 'required', message: 'Amount is required' },
-      { type: 'pattern', message: 'Amount must be a positive number' }
-    ],
-    remarks: [
-      { type: 'required', message: 'Remarks are required' }
-    ]
-  };
-
   constructor(private fb: FormBuilder, private hit_token_servie: SmartContractServicesService, private router: Router) {
 
     this.userName = sessionStorage.getItem('userName');
