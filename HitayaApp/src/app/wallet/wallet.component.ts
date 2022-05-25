@@ -33,13 +33,14 @@ export class WalletComponent implements OnInit {
 
   hat_balance: any = 0;
   erc20_symbol: any = "NA";
+  user_address: any = 0;
+  user_balance: any = 0;
 
   listtransaction = [];
 
   public myAngularxQrCode: string = null;
 
 
-  formSubmitted = false;
   userForm: FormGroup;
   user: any;
 
@@ -88,16 +89,12 @@ export class WalletComponent implements OnInit {
     else {
       this.commonLayout = true;
     }
+    this.getAccountAndBalance();
 
   }
 
   ngOnInit(): void {
 
-    this.formSubmitted = false;
-    this.user = { address: '', transferAddress: '', balance: '', amount: '', remarks: '' };
-    this.getAccountAndBalance();
-    this.createForms();
-    /*this.getHatBalance();*/
     this.getContacts();
     this.getusername();
     this.gettransaction();
@@ -246,29 +243,13 @@ export class WalletComponent implements OnInit {
 
 
 
-  createForms() {
-    this.userForm = this.fb.group({
-      transferAddress: new FormControl(this.user.transferAddress, Validators.compose([
-        Validators.required,
-        Validators.minLength(42),
-        Validators.maxLength(42)
-      ])),
-      amount: new FormControl(this.user.amount, Validators.compose([
-        Validators.required,
-        Validators.pattern('^[+]?([.]\\d+|\\d+[.]?\\d*)$')
-      ])),
-      //remarks: new FormControl(this.user.remarks, Validators.compose([
-      //  Validators.required
-      //]))
-    });
-  }
 
   getAccountAndBalance = () => {
     const that = this;
     this.hit_token_servie.getUserBalance().
       then(function (retAccount: any) {
-        that.user.address = retAccount.account;
-        that.user.balance = retAccount.balance / (10 ** 18);
+        that.user_address = retAccount.account;
+        that.user_balance = retAccount.balance / (10 ** 18);
         console.log('transfer.components :: getAccountAndBalance :: that.user');
         console.log(that.user);
       }).catch(function (error) {
@@ -324,7 +305,7 @@ export class WalletComponent implements OnInit {
 
   submitTransferForm(form: NgForm) {
     console.log('transfer.components :: submitForm :: this.userForm.value');
-    this.transfer = { sender: this.user.address, reciver: form.value.crypto, amount: form.value.amount };
+    this.transfer = { sender: this.user_address, reciver: form.value.crypto, amount: form.value.amount };
     // TODO: service call
     this.hit_token_servie.transfer(this.transfer, form.value.typex).
       then(function () { }).catch(function (error) {
@@ -336,7 +317,7 @@ export class WalletComponent implements OnInit {
   burn(form: NgForm) {
     console.log('transfer.components :: submitForm :: this.userForm.value');
     // TODO: service call
-    this.hit_token_servie.burn(form.value.amt, this.user.address).
+    this.hit_token_servie.burn(form.value.amt, this.user_address).
       then(function () { }).catch(function (error) {
         console.log(error);
       });
@@ -346,7 +327,7 @@ export class WalletComponent implements OnInit {
 
   SubmitAddContact(form: NgForm) {
     console.log("Add Contact Fuction Started");
-    this.contact = { owner: this.user.address, contactid: form.value.crypto, name: form.value.name, type: form.value.type };
+    this.contact = { owner: this.user_address, contactid: form.value.crypto, name: form.value.name, type: form.value.type };
     console.log(this.contact);
     this.hit_token_servie.add_contact(this.contact).
       then(function () { }).catch(function (error) {
@@ -378,7 +359,9 @@ export class WalletComponent implements OnInit {
   geterc20token = () => {
     console.log("Get ERC20 Balance");
     const that = this;
-    this.hit_token_servie.view_HAT_balance(that.user.address).
+    console.log(that.user_address);
+    console.log("User Address");
+    this.hit_token_servie.view_HAT_balance(that.user_address).
       then(function (balance: any) {
         that.hat_balance = balance;
         console.log(that.hat_balance);
