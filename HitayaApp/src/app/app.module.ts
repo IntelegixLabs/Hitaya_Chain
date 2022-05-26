@@ -24,6 +24,7 @@ import { NFTComponent } from './nft/nft.component';
 import { LoanCheckoutComponent } from './loan-checkout/loan-checkout.component';
 import { NftDetailsComponent } from './nft-details/nft-details.component';
 import { NftPurchaseSuccessComponent } from './nft-purchase-success/nft-purchase-success.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { NftPurchaseSuccessComponent } from './nft-purchase-success/nft-purchase
     NFTComponent,
     LoanCheckoutComponent,
     NftDetailsComponent,
-    NftPurchaseSuccessComponent
+    NftPurchaseSuccessComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

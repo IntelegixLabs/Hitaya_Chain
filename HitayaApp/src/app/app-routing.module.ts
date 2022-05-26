@@ -14,6 +14,7 @@ import { AuthGuardService } from './hitaya-services/auth-guard/auth-guard.servic
 import { LoanCheckoutComponent } from './loan-checkout/loan-checkout.component';
 import { NftDetailsComponent } from './nft-details/nft-details.component';
 import { NftPurchaseSuccessComponent } from './nft-purchase-success/nft-purchase-success.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: LoadingComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'loan-history', component: LoanRequestHistoryComponent/*, canActivate: [AuthGuardService] */ },
   { path: 'loan-request-checkout', component: LoanCheckoutComponent },
   { path: 'nft-details', component: NftDetailsComponent },
-  { path: 'nft-purchase-success', component: NftPurchaseSuccessComponent }
+  { path: 'nft-purchase-success', component: NftPurchaseSuccessComponent },
+  { path: 'admin', component: AdminDashboardComponent }
 ];
 
 @NgModule({
