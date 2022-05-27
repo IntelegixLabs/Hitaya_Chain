@@ -1,6 +1,4 @@
 
-C:\Users\ZEUS\Desktop\Intelegix Labs\Hitaya_Chain\truffle>truffle migrate --network kardiachain_testnet --reset --compile-none
-
 Compiling your contracts...
 ===========================
 > Compilation skipped because --compile-none option was passed.
@@ -18,13 +16,13 @@ Starting migrations...
 
    Deploying 'Migrations'
    ----------------------
-   > transaction hash:    0x7ad745a50563ca4b41ea3b2c5debfe5127a0618a77f87fc92467d8dd34fa46c3
+   > transaction hash:    0xe2d19697a297fc8f25cc00eb0f6af6584bd7d4763ce945a04bee5b8f10105aa0
    > Blocks: 1            Seconds: 4
-   > contract address:    0xB1aA13d028BFBA7bdeeB47Cc29B2FCFCa5343497
-   > block number:        6903933
-   > block timestamp:     1653672095
+   > contract address:    0x781382E764C1bAf9051E2AB8856CD7FBb5E2A895
+   > block number:        6906722
+   > block timestamp:     1653683447
    > account:             0x1B1E26f75bFb4ef84fe914FC9f81aa73ae210Ac8
-   > balance:             5
+   > balance:             4.994965482
    > gas used:            290432 (0x46e80)
    > gas price:           1 gwei
    > value sent:          0 ETH
@@ -33,8 +31,8 @@ Starting migrations...
    Pausing for 2 confirmations...
 
    -------------------------------
-   > confirmation number: 1 (block: 6903933)
-   > confirmation number: 2 (block: 6903934)
+   > confirmation number: 1 (block: 6906726)
+   > confirmation number: 2 (block: 6906727)
    > Saving migration to chain.
    > Saving artifacts
    -------------------------------------
@@ -46,32 +44,33 @@ Starting migrations...
 
    Deploying 'HAT_TOKEN'
    ---------------------
-   > transaction hash:    0x70ac4418451bb145a6aa568f88a48dbcacb033ed8cdfee67cc13b40fcde60b23
-   > Blocks: 1            Seconds: 4
-   > contract address:    0x27a2b4569a1865523c18a7Df2cF9BeF60c7aF3C5
-   > block number:        6903939
-   > block timestamp:     1653672119
+   > transaction hash:    0x9af0aa3c96f018891993685a735eca700e500b91eecb1867fa9624b765b3dc66
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x64335f154F5E80Bb0e31007027BDa05e65416675
+   > block number:        6906732
+   > block timestamp:     1653683487
    > account:             0x1B1E26f75bFb4ef84fe914FC9f81aa73ae210Ac8
-   > balance:             4.995396089
-   > gas used:            4271456 (0x412d60)
+   > balance:             4.994923459
+   > gas used:            4295992 (0x418d38)
    > gas price:           1 gwei
    > value sent:          0 ETH
-   > total cost:          0.004271456 ETH
+   > total cost:          0.004295992 ETH
 
    Pausing for 2 confirmations...
 
    -------------------------------
-   > confirmation number: 1 (block: 6903940)
-   > confirmation number: 2 (block: 6903941)
+   > confirmation number: 1 (block: 6906732)
+   > confirmation number: 2 (block: 6906733)
    > Saving migration to chain.
    > Saving artifacts
    -------------------------------------
-   > Total cost:         0.004271456 ETH
+   > Total cost:         0.004295992 ETH
 
 Summary
 =======
 > Total deployments:   2
-> Final cost:          0.004561888 ETH
+> Final cost:          0.004586424 ETH
+
 
 
 

@@ -144,6 +144,7 @@ module.exports = {
             gas: 5500000,           // Default gas limit
             confirmations: 2,       // # of confs to wait between deployments. (default: 0)
             timeoutBlocks: 200,     // # of blocks before a deployment times out  (minimum/default: 50)
+            networkCheckTimeout: 1000000,
             skipDryRun: true,       // Skip dry run before migrations? (default: false for public nets )
         }
     },
