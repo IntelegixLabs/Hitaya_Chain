@@ -21,7 +21,7 @@ Users can Buy and mint NFT using our platform too.
   <li>User Dashboard</li>
   <li>Admin Dashboard</li>
   <li>Send/Transfer Tokens</li>
-  <li>Recive Tokens</li>
+  <li>Receive Tokens</li>
   <li>Swap Tokens</li>
   <li>Burn Tokens</li>
   <li>Mint NFT</li>
