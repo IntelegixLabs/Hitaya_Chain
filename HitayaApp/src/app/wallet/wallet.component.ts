@@ -329,7 +329,7 @@ export class WalletComponent implements OnInit {
           console.log(employee_data[i][0]);
           if (that.userName == employee_data[i][1]) {
             that.curr_user_name = String(employee_data[i][0]);
-            /*that.hat_balance = employee_data[i][3];*/
+            that.hat_balance = employee_data[i][3];
             console.log(that.curr_user_name);
             console.log("Employee Data");
             console.log(employee_data);

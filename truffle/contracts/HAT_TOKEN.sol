@@ -14,6 +14,7 @@ contract HAT_TOKEN is ERC20 {
         string name;
         address user_crypto_id;
         string password;
+        uint256 balance;
     }
     
     
@@ -83,7 +84,7 @@ contract HAT_TOKEN is ERC20 {
     
 
     function _create_New_User(string memory _name, address _user_crypto_id, string memory _password) public {
-        Users.push(User( _name, _user_crypto_id, _password));   
+        Users.push(User( _name, _user_crypto_id, _password, 0));   
     }
     
     
@@ -94,6 +95,14 @@ contract HAT_TOKEN is ERC20 {
 
     function transfer(address recipient, uint256 amount, string memory _trans_type) public virtual returns (bool) {
         _transfer(msg.sender, recipient, amount);
+        for (uint i=0;i<Users.length;i++){
+            if (Users[i].user_crypto_id==msg.sender){
+                Users[i].balance=Users[i].balance-amount;
+            }
+            if (Users[i].user_crypto_id==recipient){
+                Users[i].balance=Users[i].balance+amount;
+            }
+        }
         Transactions.push(Transaction( msg.sender, recipient, amount, _trans_type));
         return true;
     }
@@ -101,6 +110,11 @@ contract HAT_TOKEN is ERC20 {
     
     function airdrop(address recipient, uint256 amount) public virtual returns (bool) {
         _transfer(msg.sender, recipient, amount);
+        for (uint i=0;i<Users.length;i++){
+            if (Users[i].user_crypto_id==recipient){
+                Users[i].balance=Users[i].balance+amount;
+            }
+        }
         Transactions.push(Transaction( msg.sender, recipient, amount, "AIR DROP"));
         return true;
     }
