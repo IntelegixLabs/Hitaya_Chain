@@ -59,17 +59,17 @@ Users can Buy and mint NFT using our platform too.
 # Cloning the GitHub Repo and Installing the Packages
 
 ```
-  $ git clone https://github.com/IntelegixLabs/Hitaya_Chain
-  $ cd Hitaya_Chain
+$ git clone https://github.com/IntelegixLabs/Hitaya_Chain
+$ cd Hitaya_Chain
 ```
 
 # Using and Installing Truffle Suite for Kardia TestNet Smart contract deployment :four_leaf_clover:
 
 ```
-  $ cd truffle
-  $ npm install
-  $ truffle compile
-  $ truffle migrate --network kardiachain_testnet --reset --compile-none
+$ cd truffle
+$ npm install
+$ truffle compile
+$ truffle migrate --network kardiachain_testnet --reset --compile-none
 ```
 
 
