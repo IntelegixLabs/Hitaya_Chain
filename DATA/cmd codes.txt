@@ -1,0 +1,33 @@
+0x5Ec7A9a5430860831D21ab5ef1DB0A4288052467
+
+HAT_TOKEN.deployed().then(function(instance){Hat = instance;})
+
+ Hat._create_New_User("Sham Sharma","0x5EbFcf26Bce18D25ef22445520a54d5cF1c30330","12345678");
+
+Hat.Users(0).send({from: '0x59521931430B5df139eFcB800841D3f6D6988C6e'})
+.then(function(receipt){
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
+});
+;
+Hat.admin();
+Hat.change_admin("0x5EbFcf26Bce18D25ef22445520a54d5cF1c30330");
+Hat.airdrop("0x6ff14f4B6E861bD589DE2E6399235284849129F4",100);
+Hat.employeeadmin();
+Hat.employees_view();
+Hat.balanceOf(0x171F16b701F6301900C1f9C28263d88a4A712397);
+Hat.change_employeeadmin(0x6130d30ba1b3b2743ffDDF1872436C73546fA8fd);
+
+Nitesh Sakpal
+748240
+
+
+0x84791132f2875a690FE198ac878D6142bB6Ee079
+
+Hat._create_New_Employee("raj713335@gmail.com","10800116107","JL3", "STG");
+
+Hat._create_New_User("Arnn Das","0xD66f9d3cB040538813eC5FDeB743720CBB683DF2","12345678");
+
+Hat._create_New_Employee("Nitesh Sakpal","748240","JL4", "STG");
+
+
+Hat._create_New_Employee("Nitesh Sakpal","748240","JL4", "STG");
