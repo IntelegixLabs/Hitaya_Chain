@@ -1,8 +1,8 @@
-<h1 align="center">HITAYA CIRCLE</h1>
+<h1 align="center">HITAYA KARDIA CHAIN</h1>
 
 <p><strong>A Financial DApp –</strong> Hitaya is derived from a Sanskrit word that means Welfare.
 	
-<strong>Hitaya Circle DApp </strong>primary focus is to use Circle Platform API to transfer HAT tokens using <a href="https://developers.circle.com/reference/payments-payments-get">Circe API </a> from one user to another, and give the user a personalized dashboard, to check all this income and expenditure in a given period of time. 
+<strong>Hitaya Chain DApp </strong>primary focus is to use Kardia Chain BlockChain to transfer HAT tokens from one user to another, and give the user a personalized dashboard, to check all this income and expenditure in a given period of time. 
 
 Users can request/give a short loan from a peer/friend using a smart contract and decide upon the interest rate and duration of the loan.
 
@@ -10,16 +10,17 @@ Users can Buy and mint NFT using our platform too.
 	
 
 
-
-
 <img src="DATA/screenshot/05a.png" align="right" width="350" height="350" />
 <h3>Key Features</h3>
 <ul>
   <li>Transfer HAT</li>
   <li>Personalized Expenditure Dashboard</li>
-  <li>Circle API</li>
+  <li>Kardia Chain</li>
   <li>HAT Smart Contract</li>
-  <li>Verite</li>
+  <li>Mint NFT</li>
+  <li>Borrow HAT Token</li>
+  <li>KRC 20 Token</li>
+  <li>Admin Dashboard</li>
 </ul>
 
 
@@ -27,22 +28,73 @@ Users can Buy and mint NFT using our platform too.
 <br />
 <br />
 
+# Hitaya CHAIN
 
-# HITAYA WORKING SAMPLE
+<h1>Project Requirements</h1>
+
+<h4>Languages</h4>
+<ul>
+  <li> JavaScript/TypeScript</li>
+  <li> Python 3</li>
+  <li> Sokidity</li>
+  <li> HTML/SCSS </li>
+</ul>
+
+<h4>Frameworks</h4>
+<ul>
+  <li>Angular 13.2</li>
+  <li>Truffle</li>
+</ul>
+
+<h1>Getting Started</h1>
+
+# Cloning the GitHub Repo and Installing the Packages
+
+```
+  $ git clone https://github.com/IntelegixLabs/Hitaya_Chain
+  $ cd Hitaya_Chain
+```
+
+# Using and Installing Truffle Suite for Kardia TestNet Smart contract deployment :four_leaf_clover:
+
+```
+  $ cd truffle
+  $ npm install
+  $ truffle compile
+  $ truffle migrate --network kardiachain_testnet --reset --compile-none
+```
+
+
+# Run the Angular App
+
+```
+$ cd HitayaApp
+$ npm install
+$ ng serve
+```
+
+# Run Python PAN card OCR Reader Flask Application
+
+```
+$ cd ML_Components
+$ pip install -r requirements.txt
+$ python app.py
+```
+
+
+# HITAYA CHAIN WORKING SAMPLE
 
 For video demostration refer to the YouTube link <a href="https://www.youtube.com/watch?v=L5kDGIO2Htw">here.</a> 
 
 
 
-# HITAYA VERITE KYC SCREENSHOTS
-
-Hitaya Circle KYC using Verite Platform.
+# HITAYA CHAIN REGISTRATION SCREENSHOTS
 
 
-<h3>How Hitaya Verite KYC will works ?</h3>
+<h3>How Hitaya Circle Registration will works ?</h3>
 <ul>
   <li>A user can upload their identity proof in the form of a image</li>
-  <li>The Circle API will verify and give us a JWT tokens, that can be used to verification and KYC</li>
+  <li>The Machine Learning API will detect the image and extract the User ID from Image</li>
 </ul>
 
 <br />
@@ -53,9 +105,9 @@ Hitaya Circle KYC using Verite Platform.
 <br />
 
 
-# HITAYA FINANCE SCREENSHOTS
+# HITAYA CHAIN FINANCE SCREENSHOTS
 
-Hitaya Finance can be used to get soft loans from other peers/colleague/friends belonging to the same organization.
+Hitaya Finance can be used to get soft loans from other peers/colleague/friends belonging to the same organization. (Work in Progress)
 
 
 <h3>How Hitaya Finance works ?</h3>
@@ -76,9 +128,9 @@ Hitaya Finance can be used to get soft loans from other peers/colleague/friends 
 </p>
 <br />
 
-# HITAYA NFT SCREENSHOTS
+# HITAYA CHAIN NFT SCREENSHOTS
 
-Hitaya Circle to Mint and Purchase NFT in the Platform (Work in Progress).
+Hitaya Circle to Mint and Purchase NFT in the Platform.
 
 
 <h3>NFTs</h3>
@@ -94,7 +146,7 @@ Hitaya Circle to Mint and Purchase NFT in the Platform (Work in Progress).
 </p>
 <br />
 
-# HITAYA WALLET APPLICATION SCREENSHOTS
+# HITAYA CHAIN WALLET APPLICATION SCREENSHOTS
 
 <br />
 <p align="center">
@@ -114,58 +166,6 @@ Hitaya Circle to Mint and Purchase NFT in the Platform (Work in Progress).
 <br />
 
 
-
-# Hitaya Circle
-
-<h1>Project Requirements</h1>
-
-<h4>Languages</h4>
-<ul>
-  <li>JavaScript/TypeScript</li>
-  <li>Python 3</li>
-</ul>
-
-<h4>Frameworks</h4>
-<ul>
-  <li>Angular 13.2</li>
-  <li>BootStrap 5.1.3</li>
-  <li>Truffle</li>
-  <li>Hardhat</li>
-</ul>
-
-<h1>Getting Started</h1>
-
-# Installing Truffle Suite for Local Smart contract deployment :four_leaf_clover:
-
-	Install Ganache and start the local blockchain
-```
-  $ cd truffle
-  $ npm install -g truffle
-  $ npm i @openzeppelin/contracts
-  $ truffle compile
-  $ truffle migrate
-  $ truffle migrate — network development
-  $ truffle console --network development
-```
-
-# Run HardHat
-
-```
-$ npm i @openzeppelin/contracts
-$ npm install -D @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle ethereum-waffle chai
-$ npx hardhat run scripts/deploy.js --network rinkeby
-```
-
-
-# Run the Angular App
-
-```
-$ git clone https://github.com/IntelegixLabs/Hitaya_Circle
-$ cd Hitaya_Circle
-$ cd HitayaApp
-$ npm install
-$ ng serve
-```
 
 <h2>That's it!</h2>
 
