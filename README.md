@@ -9,9 +9,11 @@ Users can request/give a short loan from a peer/friend using a smart contract an
 Users can Buy and mint NFT using our platform too.
 	
 
-
 <img src="DATA/screenshot/05a.png" align="right" width="350" height="500" />
 <h3>Key Features</h3>
+
+<br />
+<br />
 <ul>
   <li>User Profile</li>
   <li>Personalized Income/Expenditure Dashboard</li>
