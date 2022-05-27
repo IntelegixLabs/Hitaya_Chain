@@ -99,7 +99,7 @@ For video demostration refer to the YouTube link <a href="https://www.youtube.co
 # HITAYA CHAIN REGISTRATION SCREENSHOTS
 
 
-<h3>How Hitaya Circle Registration will works ?</h3>
+<h3>How Hitaya Chain Registration will works ?</h3>
 <ul>
   <li>A user can upload their identity proof in the form of a image</li>
   <li>The Machine Learning API will detect the image and extract the User ID from Image</li>
@@ -138,7 +138,7 @@ Hitaya Finance can be used to get soft loans from other peers/colleague/friends 
 
 # HITAYA CHAIN NFT SCREENSHOTS
 
-Hitaya Circle to Mint and Purchase NFT in the Platform.
+Hitaya Chain to Mint and Purchase NFT in the Platform.
 
 
 <h3>NFTs</h3>
