@@ -73,6 +73,14 @@ $ npm install
 $ ng serve
 ```
 
+# Run Python PAN card OCR Reader Flask Application
+
+```
+$ cd ML_Components
+$ pip install -r requirements.txt
+$ python app.py
+```
+
 
 # HITAYA CHAIN WORKING SAMPLE
 
