@@ -40,10 +40,7 @@ contract HAT_TOKEN is ERC20 {
     Transaction[] public Transactions;
 
     
-
-
-    
-    address public admin;
+    address public admin = msg.sender;
     uint256 total_hat_burnt;
     
     constructor() ERC20('Hitaya Token', 'HAT'){

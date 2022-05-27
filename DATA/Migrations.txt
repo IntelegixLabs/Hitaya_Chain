@@ -1,0 +1,78 @@
+
+C:\Users\ZEUS\Desktop\Intelegix Labs\Hitaya_Chain\truffle>truffle migrate --network kardiachain_testnet --reset --compile-none
+
+Compiling your contracts...
+===========================
+> Compilation skipped because --compile-none option was passed.
+
+
+Starting migrations...
+======================
+> Network name:    'kardiachain_testnet'
+> Network id:      69
+> Block gas limit: 100000000 (0x5f5e100)
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x7ad745a50563ca4b41ea3b2c5debfe5127a0618a77f87fc92467d8dd34fa46c3
+   > Blocks: 1            Seconds: 4
+   > contract address:    0xB1aA13d028BFBA7bdeeB47Cc29B2FCFCa5343497
+   > block number:        6903933
+   > block timestamp:     1653672095
+   > account:             0x1B1E26f75bFb4ef84fe914FC9f81aa73ae210Ac8
+   > balance:             5
+   > gas used:            290432 (0x46e80)
+   > gas price:           1 gwei
+   > value sent:          0 ETH
+   > total cost:          0.000290432 ETH
+
+   Pausing for 2 confirmations...
+
+   -------------------------------
+   > confirmation number: 1 (block: 6903933)
+   > confirmation number: 2 (block: 6903934)
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:         0.000290432 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'HAT_TOKEN'
+   ---------------------
+   > transaction hash:    0x70ac4418451bb145a6aa568f88a48dbcacb033ed8cdfee67cc13b40fcde60b23
+   > Blocks: 1            Seconds: 4
+   > contract address:    0x27a2b4569a1865523c18a7Df2cF9BeF60c7aF3C5
+   > block number:        6903939
+   > block timestamp:     1653672119
+   > account:             0x1B1E26f75bFb4ef84fe914FC9f81aa73ae210Ac8
+   > balance:             4.995396089
+   > gas used:            4271456 (0x412d60)
+   > gas price:           1 gwei
+   > value sent:          0 ETH
+   > total cost:          0.004271456 ETH
+
+   Pausing for 2 confirmations...
+
+   -------------------------------
+   > confirmation number: 1 (block: 6903940)
+   > confirmation number: 2 (block: 6903941)
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:         0.004271456 ETH
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.004561888 ETH
+
+
+
+truffle migrate --network kardiachain_testnet --reset --compile-none
