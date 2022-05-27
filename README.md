@@ -36,7 +36,7 @@ Users can Buy and mint NFT using our platform too.
 <ul>
   <li> JavaScript/TypeScript</li>
   <li> Python 3</li>
-  <li> Sokidity</li>
+  <li> Solidity</li>
   <li> HTML/SCSS </li>
 </ul>
 
