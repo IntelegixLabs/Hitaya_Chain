@@ -13,14 +13,20 @@ Users can Buy and mint NFT using our platform too.
 <img src="DATA/screenshot/05a.png" align="right" width="350" height="350" />
 <h3>Key Features</h3>
 <ul>
-  <li>Transfer HAT</li>
-  <li>Personalized Expenditure Dashboard</li>
-  <li>Kardia Chain</li>
-  <li>HAT Smart Contract</li>
+  <li>User Profile</li>
+  <li>Personalized Income/Expenditure Dashboard</li>
+  <li>Change Password/Profile Details</li>
+  <li>User Dashboard</li>
+  <li>Admin Dashboard</li>
+  <li>Send/Transfer Tokens</li>
+  <li>Recive Tokens</li>
+  <li>Swap Tokens</li>
+  <li>Burn Tokens</li>
   <li>Mint NFT</li>
   <li>Borrow HAT Token</li>
   <li>KRC 20 Token</li>
-  <li>Admin Dashboard</li>
+  <li>Admin Profile</li>
+  <li>Air Drop Tokens</li>
 </ul>
 
 
