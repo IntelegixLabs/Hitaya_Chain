@@ -1,8 +1,8 @@
-0x5Ec7A9a5430860831D21ab5ef1DB0A4288052467
+0x27a2b4569a1865523c18a7Df2cF9BeF60c7aF3C5
 
 HAT_TOKEN.deployed().then(function(instance){Hat = instance;})
 
- Hat._create_New_User("Sham Sharma","0x5EbFcf26Bce18D25ef22445520a54d5cF1c30330","12345678");
+ Hat._create_New_User("Arnab Das","0x0eF4523a4165b9Bd7e6764BAAF53855db999c6f8","12345678");
 
 Hat.Users(0).send({from: '0x59521931430B5df139eFcB800841D3f6D6988C6e'})
 .then(function(receipt){
@@ -10,7 +10,7 @@ Hat.Users(0).send({from: '0x59521931430B5df139eFcB800841D3f6D6988C6e'})
 });
 ;
 Hat.admin();
-Hat.change_admin("0x5EbFcf26Bce18D25ef22445520a54d5cF1c30330");
+Hat.change_admin("0x1B1E26f75bFb4ef84fe914FC9f81aa73ae210Ac8");
 Hat.airdrop("0x6ff14f4B6E861bD589DE2E6399235284849129F4",100);
 Hat.employeeadmin();
 Hat.employees_view();
