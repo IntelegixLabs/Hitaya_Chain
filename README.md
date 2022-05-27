@@ -10,7 +10,7 @@ Users can Buy and mint NFT using our platform too.
 	
 
 
-<img src="DATA/screenshot/05a.png" align="right" width="350" height="350" />
+<img src="DATA/screenshot/05a.png" align="right" width="350" height="550" />
 <h3>Key Features</h3>
 <ul>
   <li>User Profile</li>
